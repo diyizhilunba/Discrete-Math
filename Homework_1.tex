@@ -1,0 +1,294 @@
+\documentclass{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{xcolor}
+
+\title{Homework 1}
+\author{Aaron Ma}
+\begin{document}
+\maketitle
+- Failure to submit homework correctly will result in zeroes. Student graders cannot see your work if you do not select the pages of your work correctly.
+
+- Handwritten homework is OK. You do not have to type up your work.
+
+- Problems assigned from the textbook are from the $5^{th}$ edition.
+
+- No late homework accepted. Lateness due to technical issues will not be excused.
+
+Theorem *. Let $p$ and $q$ be statement variables. $p \rightarrow q \equiv \neg p \vee q$.
+
+1. (6 points) Show the logical equivalences using truth tables and say a few words explaining why your truth table shows $\equiv$
+
+(a) $\neg(p \vee q) \equiv \neg p \wedge \neg q$ (DeMorgan's law).
+
+
+\begin{center}
+    \begin{tabular}{c|c|c|c|c|c|c}
+     $p$ & $q$ & $\neg p$ & $\neg q$ & $p \vee q $ & $\neg (p \vee q)$ & $\neg p  \wedge \neg q$\\
+     \hline
+     T & T & F & F & T & F & F\\
+     T & F & F & T & T & F & F\\
+     F & T & T & F & T & F & F\\
+     F & F & T & T & F & T & T\\
+    \end{tabular}
+
+\end{center}
+
+As seen in the table, $\neg(p \vee q)$ always has the same truth value as $\neg p \wedge \neg q$ does regardless of the truth value of $p$ and $q$, which are the only statements related to the two statement forms. As a result, the two statement results are equivalent
+\\
+
+
+(b) $p \vee(q \wedge r) \equiv(p \vee q) \wedge(p \vee r)$ (Distributive law).
+
+Note that your truth table will have 8 rows.
+
+
+\begin{center}
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+     $p$ & $q$ & $r$ & $q \wedge r$ & $p \vee (q \wedge r) $ & $p \vee q$ & $p \vee r$ & $(p \vee q) \wedge ( p \vee r)$\\
+     \hline
+     T & T & T & T & T & T & T & T\\
+     T & T & F & F & T & T & T & T\\
+     T & F & T & F & T & T & T & T\\
+     T & F & F & F & T & T & T & T\\
+     F & T & T & T & T & T & T & T\\
+     F & T & F & F & F & T & F & F\\
+     F & F & T & F & F & F & T & F\\
+     F & F & F & F & F & F & F & F\\
+    \end{tabular}
+
+\end{center}
+
+As seen in the table, $p \vee(q \wedge r)$ always has the same truth value as $(p \vee q) \wedge(p \vee r)$ does regardless of the truth value of $p$, $q$, and $r$, which are the only statements related to the two statement forms. As a result, the two statement results are equivalent
+
+
+
+
+
+2. (3 points) Prove that $(p \vee q) \rightarrow r \equiv(p \rightarrow r) \wedge(q \rightarrow r)$ using Theorem * and Theorem 2.1.1. Annotate your proof. For reference, see example 2.1.14.\\
+$Proof:$
+\begin{align}
+    (p \vee q) \rightarrow r &\equiv \neg (p \vee q) \wedge r  \tag{by Theorem *} \\
+                            &\equiv (\neg p \wedge \neg q) \wedge r \tag{by DeMorgan's Law}\\
+                            &\equiv (\neg p \wedge r ) \wedge (\neg q \wedge r) \tag{by Distributive Law}\\
+                            &\equiv (p \rightarrow r) \wedge (q \rightarrow r) \tag{by Theorem *} 
+\end{align}
+
+
+3. (3 points) Find all values of $p$ and $q$ for which $p \rightarrow q$ is not equal to $q \rightarrow p$. For which values of $p, q$ are the statement forms equal?
+
+We can construct a truth table for this
+\begin{center}
+    \begin{tabular}{c|c|c|c}
+        $p$ & $q$ & $p \rightarrow q$ & $q \rightarrow p$  \\
+         T & T & T & T \\
+         T & F & F & T \\
+         F & T & T & F \\
+         F & F & T & T
+    \end{tabular}
+\end{center}
+We can find that when $p$ and $q$ are both $True$ or both $False$, the statement forms are equal, when $p$ and $q$ are not equal, the statement forms are not equal
+ 
+4. (3 points) Show that $[(p \rightarrow q) \wedge(p \rightarrow \neg q)] \rightarrow \neg p$ is a tautology using Theorem * and Theorem 2.1.1. Annotate your proof. For reference, see example 2.1.14.\\
+$Proof:$
+\begin{align}
+    [(p \rightarrow q) \wedge (p \rightarrow \neg q)] \rightarrow \neg p &\equiv 
+    \neg [(p \rightarrow q) \wedge (p \rightarrow \neg q)] \vee \neg p \tag{by Theorem *}\\
+    &\equiv \neg[(\neg p \vee q) \wedge (\neg p \vee \neg q)] \vee \neg p \tag{by Theorem *}\\
+    &\equiv \neg[\neg p \vee (q \wedge \neg q)]\vee \neg p \tag{by Distributive Law}\\
+    &\equiv \neg(\neg p \vee c) \vee \neg p \tag{by Negation Law}\\
+    &\equiv \neg(\neg p) \vee \neg p \tag{by Universal Bound Law}\\
+    &\equiv p \vee \neg p \tag{by Double Negative Law}\\
+    &\equiv t \tag{by Negation Law}  
+\end{align}
+
+
+5. (9 points) Section 2.1 \#31.\\
+$a: $ {01,02,11,12}\\
+$b: $ {21,22}\\
+$c: $ {10,11,20,21}
+
+6. (3 points) Section 2.1 \#46(a).\\
+for $p \oplus p$
+\begin{align}
+    p \oplus p &\equiv (p \vee p) \wedge \neg (p \wedge p)\\
+    &\equiv p \wedge\neg p\\
+    &\equiv c
+\end{align}
+\\Similarly, for $(p \oplus p) \oplus p$\\
+\begin{align}
+    (p \oplus p) \oplus p &\equiv c \oplus p\\
+    &\equiv (c \vee p) \wedge \neg (c \wedge p)\\
+    &\equiv p \wedge \neg c\\
+    &\equiv p \wedge t\\
+    &\equiv p
+\end{align}
+
+
+7. (24 points) Section 2.2 \#22, 23 .
+
+Remark. For both problems, parts (b), (c), (e), (g) only.\\
+\#22\\ 
+(b) If tomorrow is not January, then today is not New Year's Eve\\
+(c) If r is not rational, then the decimal expansion of r is not terminating\\
+(e) If x is neither positive nor 0, then x is not nonnegative\\
+(g) If n is not divisible by 2 or n is not divisible by 3, then n is not divisible by 6\\
+\#23\\
+Converse:\\
+(b)If tomorrow is January, then today is New Year's Eve\\
+(c)If r is rational, then the decimal expansion of r is terminating\\
+(e)If x is positive or x is 0, then x is nonnegative\\
+(g)If n is divisible by 2 and n is divisible by 3, then n is divisible by 6\\
+Inverse:\\
+(b)If today is not New Year's Eve, then tomorrow is not January\\
+(c)If the decimal expansion of r is not terminating, then r is not rational\\
+(e)If x is nonnegative, then x is neither positive nor 0\\
+(g)If n is not divisible by 6, then n is not divisible by 2 or n is not divisible by 3\\
+8. (9 points) Section $2.2 \# 14,38,43$.
+
+Remark. When doing \#14, do not use truth tables. Use Theorem * and Theorem 2.1.1.\\
+\#14\\
+a
+\begin{align}
+   p \rightarrow q \vee r &\equiv  \neg p \vee (q \vee r)\\
+   &\equiv (\neg p \vee q) \vee r\\
+   &\equiv \neg(p \wedge \neg q) \vee r\\
+   &\equiv (p \wedge \neg q) \rightarrow r
+\end{align}\\
+Similarly,
+\begin{align}
+   p \rightarrow q \vee r &\equiv  \neg p \vee (q \vee r)\\
+   &\equiv \neg p \vee (r \vee q)\\
+   &\equiv (\neg p \vee r) \vee q\\ 
+   &\equiv \neg(p \wedge \neg r) \vee q\\
+   &\equiv (p \wedge \neg r) \rightarrow q
+\end{align}\\
+b\\
+$1: $ If n is prime and n is not odd, then n is 2\\
+$2: $ If n is prime and n is not 2, then n is odd\\
+\#38\\
+If it doesn't rain, Ann will not go\\
+\#43\\
+If Jim passes the exam, he does the homework regularly
+
+9. (9 points) Section $2.3 \# 9,12(b), 23$.\\
+Remark. In addition to the instructions associated to these problems, complete all truth tables even if the argument is invalid. Identify all critical rows even if the argument is invalid.\\
+\#9\\
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{} & \multicolumn{3}{|c|}{} & \multicolumn{3}{|c|}{Premises} & \multicolumn{1}{|c|}{Conclusion} \\
+\hline
+$p$ & $q$ & $r$ & $p \wedge q$ & $\neg r$ & $\neg q$ & $p \wedge q \rightarrow \neg r $&$ p \vee \neg q$ & $\neg q \rightarrow p$ & $\neg r$\\
+
+\hline
+T & T & T & T & F & F & F & T & T &  \\
+T & T & F & T & T & F & T & T & T & T \\
+T & F & T & F & F & T & T & T & T & T \\
+T & F & F & F & T & T & T & T & T & T \\
+F & T & T & F & F & F & F & F & T &  \\
+F & T & F & F & T & F & T & F & T &  \\
+F & F & T & F & F & T & T & T & F &  \\
+F & F & F & F & T & T & T & T & F & \\
+\hline
+\end{tabular}
+\end{center}
+For all the situations where all the premises are $True$, the conclusion is $True$.\\ 
+As a result, The argument is valid.
+
+\#12(b)\\
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{} &\multicolumn{2}{|c|}{Premises} &\multicolumn{1}{|c|}{Conclusion}\\
+    \hline
+        $p$ & $q$ & $p \rightarrow q$ & $\neg p$ & $\neg q$ \\
+    \hline
+        T & T & T & F &    \\
+        T & F & F & T &    \\
+        F & T & T & T & F  \\
+        F & F & T & T & T  \\
+    \hline
+    \end{tabular}
+\end{center}
+We notice that in the third row, while both premises are $True$, the Conclusion is $False$.\\
+This suggests that the argument is invalid.
+
+\#23\\
+\begin{align*}
+     &\text{Let } p \text{ represent "Oleg is a math major",} \\
+    &\text{let } q \text{ represent "Oleg is an economics major", and} \\
+    &\text{let } r \text{ represent "Oleg is required to take Math 362".}
+\end{align*}
+Then the argument has the form\\
+\begin{center}
+$\neg p \rightarrow q$\\
+$p \rightarrow r$\\
+$\therefore q \vee \neg r$
+
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{5}{|c|}{} & \multicolumn{2}{|c|}{Premises} & \multicolumn{1}{|c|}{Conclusion}\\
+    \hline
+        $p$ & $q$ & $r$ & $\neg p$ & $\neg r$ & $\neg p \rightarrow q$ & $p 
+        \rightarrow r$& $ q \vee \neg r $ \\
+    \hline
+        T & T & T & F & F & T & T & T \\
+        T & T & F & F & T & T & F &   \\
+        T & F & T & F & F & T & T & T \\
+        T & F & F & F & T & T & F &   \\
+        F & T & T & T & F & T & T & T \\
+        F & T & F & T & T & T & T & T \\
+        F & F & T & T & F & F & T &   \\
+        F & F & F & T & T & F & T &   \\ 
+    \hline
+    \end{tabular}
+\end{center}
+As we can see from the truth table, for all the circumstances that both of the Premises are $True$, the Conclusion is also $True$.\\
+This indicates that the argument is valid.
+
+
+
+10. (6 points) Section $2.3 \# 29,38(d)$.
+\#29\\
+If at least one of these two numbers is divisible by 6, then the product of these two numbers is divisible by 6.
+
+Neither of these two numbers is divisible by 6.
+ 
+The product of these two numbers is not divisible by 6.\\
+Let $p$ mean "At least one of these two numbers is divisible by 6"
+and $q$ mean "The product of these two numbers is divisible by 6"\\
+Then the argument can be changed into:\\
+\begin{align*}
+    p \rightarrow q \\
+    \neg p\\
+    \therefore \neg q \tag{Invalid: inverse error}
+\end{align*}
+
+\#38(d)\\
+Consider U's words:
+None of us is a knight.\\
+If U is a knight, i.e., His word is true.\\
+Then his word contradicts with his identity, which is knight.\\
+As a result, he must be a knave\\
+Next, Consider V's words: At least three of us are knights.\\
+If V's a knight, then his words are true.\\
+Therefore, there are at least 2 knights among W, X,Y, and Z\\
+As X, Y, and Z are exclusive from each other, there is at most 1 knight among them, which means W is also a knight. However, that situation is also impossible as V and W are both knights means that there are 3 knights in total, which contradicts any of X, Y, and Z's words.\\
+Therefore, V is a knave, which means X is a knave and W is a knight.\\
+We now know that there is either one knight or two knights according to V's words, which corresponds to Z's and Y's words respectively. \\
+If there is only one knight, then Z's word is correct, meaning he is a knight. However, as W is also a knight, it contradicts the assumption that there is only one knight.\\
+As a result, there are two knights, which are W and Y.
+
+
+
+
+
+
+11. (6 points) Section 2.3 \#42, 44. Annotate.
+
+
+\end{document}
