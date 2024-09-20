@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{mathrsfs}
+
+\title{Homework 2}
+\author{Aaron Ma}
+\begin{document}
+\maketitle
+\section{3.1}
+\subsection{4}
+\subsubsection{a}
+If $x = -2$ and $y = -1$,
+then $x < y$, meaning the hypothesis is true.\\
+However, $x^2 = 4$ and $y^2 = 1$,
+then $x^2 > y^2$, which contradicts the conclusion.\\
+This states that $Q(x,y)$ has a true hypothesis but a false conclusion when $x = -2$ and $y = -1$. In other words, it is false\\
+\subsubsection{b}
+when $x = -3$, $y = 2$,
+$x < y$ but $x^2 = 9 > y^2 = 4$\\
+This indicates that $Q(-3,2)$ has a true hypothesis but a false conclusion.\\
+That is to say that it is false.
+\subsubsection{c}
+If $x = 3$ and $y = 8$,
+then $x < y$, meaning the hypothesis is true.\\
+In addition, $x^2 = 9$ and $y^2 = 64$,
+then $x^2 < y^2$, which means the conclusion is true\\
+This states that $Q(x,y)$ has a true hypothesis and a true conclusion when $x = 3$ and $y = 8$. In other words, it is true\\
+\subsubsection{d}
+when $x = 6$, $y = 9$,
+$x < y$ and $x^2 = 36 < y^2 = 81$\\
+This indicates that $Q(6,9)$ has a true hypothesis and a true conclusion.\\
+That is to say that it is true.\\
+\subsection{20}
+The square root of a positive number is real\\
+Having a positive square root is necessary for a positive number\\
+\subsection{32}
+\subsubsection{b}
+for any $x > 2$,\\
+\begin{align*}
+    x^2-2^2 = (x+2)(x-2)\\
+    \intertext{As $x > 2$, $x+2 > 0$ and $x-2>0$}\\
+    \therefore (x+2)(x-2) > 0
+\end{align*}
+As a result, $x^2 - 2^2 > 0$, i.e. $x^2 > 4$\\
+The conclusion is true.
+\subsubsection{d}
+The conclusion is True
+\section{3.2}
+\subsection{15}
+\subsubsection{b}
+$\forall x \in D$ that is less than 0, $x \in {-48,-14,-8}$\\
+As $-48,-14,-8$ are all even, $x$ must be even.\\
+So the statement is true
+\subsubsection{d} 
+$\forall x \in D$ that is less than 0, $x \in {32}$\\
+As the tens digit of 32 is 3, which is 3 or 4\\
+So the statement is true
+\subsubsection{e}
+$\forall x \in D$ that the ones digit is 6, $x \in$ {16,26,36}\\
+If $x$ equals 36, the tens digit is 3 but not 1 or 2. \\
+So the statement is false
+\section{3.2}
+\subsection{12}
+Statement:\\
+The product of any irrational number and any rational number is irrational.\\
+Its inverse statement is that there exists such a pair of one irrational number and one rational number that their product is rational.\\
+Proposed negation is the product of any irrational number and any rational number is rational, which is different from the negation.
+\subsection{40}
+if a number is divisible by 8, then it is divisible by 4
+\subsection{46}
+All happy people have a large income
+\section{3.3}
+\subsection{43}
+There exists a real number $\varepsilon > 0$ that there isn't any real number $\vartheta$  such that for every real number $x$, if $a-\vartheta < x < a+\vartheta $  and $x \neq a$ then $L - \varepsilon < f(x) < L + \varepsilon$
+\subsection{44}
+\subsubsection{a}
+The statement is true\\
+Existence:\\
+if $x = 1$, $\forall y \in R, xy = y$\\
+Uniqueness:\\
+if $\exists z \neq 1(\forall y \in R, zy = y)$\\
+$z = \frac{y}{y} = 1$ contradicts with the assumption\\
+So only 1 can meet the requirement and the statement is true\\
+\subsubsection{b}
+The statement is false\\
+if $x = 1, \frac{1}{x} = 1$, which is an integer\\
+if $x = -1, \frac{1}{x} = -1$, which is also an integer\\
+\subsubsection{c}
+The statement is true\\
+Choose $y = -x$, As $x$ is a real number, $y$ is also a real number\\
+$\therefore x + y = 0$ and the statement is true\\
+Also, note that if $x+y = 0$, then $y = -x$, meaning the selection of $y$ is unique
+\subsection{45}
+There exists one and only one $x \in D$, such that $P(x)$
+\section{3.3}
+\subsection{56}
+They may have different truth value
+Let us assume that $P(x)$ is $x$ is even, $Q(x)$ is $x$ is odd, and $D$ is all integer
+As a result,
+\begin{align*}
+    (\exists x \in D, P(x)) \wedge  (\exists x \in D, Q(x))
+    \intertext{Means there exists integer x that is even, and there also exists integer y that is odd, which is true}
+    (\exists x \in D, P(x) \wedge Q(x))
+    \intertext{Means there exists integer x that is both even and odd, which is false}
+\end{align*}
+\subsection{57}
+They may have different truth value\\
+Let us assume that $P(x)$ is $x$ is even, $Q(x)$ is $x$ is odd, and $D$ is all integer
+As a result,
+\begin{align*}
+    (\forall x \in D, P(x)) \vee (\forall x \in D, Q(x))
+    \intertext{Means all integers are even or all integers are odd, which is false}
+    \forall x \in D, (P(x) \vee Q(x))
+    \intertext{Means all integers are either odd or even, which is true}\\
+\end{align*}
+
+
+
+\end{document}

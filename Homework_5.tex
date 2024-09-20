@@ -1,0 +1,268 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{mathrsfs}
+
+\title{Homework 5}
+\author{Aaron Ma}
+\begin{document}
+\maketitle
+\section{1}
+\subsection{28}
+\begin{align*}
+    \forall a,b,c \in \mathbb{Z}(c|ab \rightarrow c|a \vee c|b)
+\end{align*}
+This statement is false\\
+Counterexample:\\
+Let $a = 3, b = 4, c = 12$\\
+$\therefore a,b,c, \in \mathbb{Z}$, and $ab = 3 \cdot 4 = 12$\\
+It can be easily seen that $c|ab$ but $c \nmid a \wedge c \nmid b$\\
+Therefore the statement is false
+\subsection{29}
+\begin{align*}
+    \forall a,b\in \mathbb{Z}, (a|b \rightarrow a^2|b^2)
+\end{align*}
+The statement is true.\\
+\begin{proof}
+    Let $a,b$ be arbitrary integers that $a|b$.\\
+    By the definition of divisibility, $a \neq 0, b = ak$ for some $k \in \mathbb{Z}$\\
+    \begin{align*}
+        \therefore b^2 &= (ak)^2 \tag{By substitution} \\
+        &= k^2a^2\tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$ is closed under multiplication,\\
+    \begin{align*}
+        \exists x = k^2 \in \mathbb{Z}\\
+        \therefore b^2 &= xa^2
+    \end{align*}
+    As a result, $a^2|b^2$
+    
+\end{proof}
+
+\subsection{30}
+\begin{align*}
+    \forall a,n \in \mathbb{Z}, (a|n^2 \wedge a \leq n \rightarrow a|n)
+\end{align*}
+The statement is false\\
+Let $a = -9, n = 3$\\
+so that $a,n\in \mathbb{Z}$, $-9|3^2$, and $-9 \leq 3$\\
+However, $-9 \nmid 3$\\
+As a result, the statement is false\\
+
+\subsection{37}
+\subsubsection{a}
+$1176 = 2^3 \cdot 3 \cdot 7^2$
+\subsubsection{b}
+$5733 = 3^2 \cdot 7^2 \cdot 13$
+\subsubsection{c}
+$3675 = 3 \cdot 5^2 \cdot 7^2$
+
+\section{2}
+\subsection{45}
+$\forall n \in \mathbb{Z} - \mathbb{Z^-}$(if the decimal representation ends in 5, then $5|n$)
+\begin{proof}
+    let n be a nonnegative integer whose decimal representation ends in 5\\
+    By the definition, $n = 10k + 5$ for some $k \in \mathbb{Z}$\\
+    \begin{align*}
+        \therefore
+        n &= 10k + 5\\
+          &= 5(2k + 1) \tag{By definition}\\
+    \end{align*}
+    As $\mathbb{Z}$ is closed under multiplication and addition, $(2k+1) \in \mathbb{Z}$\\
+    let $x = 2k+1$, \\
+    \begin{align*}
+        \therefore
+        n = 5x \tag{By substitution} 
+    \end{align*}
+    As x is an integer, $5|n$
+\end{proof}
+
+\subsection{48}
+for any nonnegative integer n, if the sum of the digits of n is divisible by 3, then is divisible by 3
+\begin{proof}
+Set $n = \overline{x_nx_{n-1}x_{n-2}x_{n-3}...x_0}$ is an arbitrary nonnegative number that the sum of the digits of n is divisible by 3\\
+By the definition of divisible\\
+\begin{align*}
+    x_0 + x_1 + \ldots + x_n &= \sum_{k=0}^nx_k\\
+    &= 3m 
+\end{align*}
+     for some $m \in \mathbb{Z}$
+
+
+    \begin{align*}
+       \therefore
+       n &= \overline{x_nx_{n-1}x_{n-2}x_{n-3}...x_0}\\
+       &= 10^0 x_0 + 10^1 x_{1} + \ldots + 10^nx_n\\
+       &= \sum_{k = 0}^n{10^k x_k}\\
+       &= \sum_{k=0}^nx_k + \sum_{k = 0}^n(10^k-1)x_k\\
+       &= 3m + \sum_{k = 0}^n(10^k-1)x_k
+    \end{align*}
+for $(10^k -1)$
+\begin{align*}
+    10^k - 1 &= 9\frac{10^k - 1}{9}\\
+    &= 9\frac{10^k - 1}{10-1}\\
+    &= 9 \sum_{k=0}^n{10^k}\\
+    &= 3(3\sum_{k=0}^n{10^k})
+\end{align*}
+As $\mathbb{Z}$ is closed under multiplication and addition\\
+there exists $n \in \mathbb{Z}$ such that $p = (3\sum_{k=0}^n{10^k}) $ and $10^k -1 = 3p$\\
+In other words,
+\begin{align*}
+    n &= 3m + 3p\\
+    &= 3(m+p)\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition\\
+there exists $q \in \mathbb{Z}$ such that $q = m+n$ and $n = 3q$\\
+By definition of divisibility, n is divisible by 3
+
+\end{proof}
+
+\section{3}
+\subsection{17}
+$\forall n \in \mathbb{Z}(n^2 - n + 3$ is odd$)$
+\begin{proof}
+Let $n$ be an arbitrary integer\\
+Situation 1:$n is even$\\
+By definition of even\\
+$n = 2k_1$ for some $k_1 \in \mathbb{Z}$\\
+\begin{align*}
+    \therefore
+    n^2 - n +3 &= (2k_1)^2 - (2k_1) + 3 \tag{By Substitution}\\
+    &= 4k_1^2 - 2k_1 + 3 \tag{By algebra}\\
+    &= 2(2k_1^2 - k_1 + 1) + 1 \tag{By algebra}\\
+\end{align*}
+As $\mathbb{Z}$ is closed under multiplication, addition, and subtraction\\
+there exists $x  \in \mathbb{Z}$ such that $ x = (2k_1^2 - k_1 + 1)$ and thus, $n^2 - n + 3 = 2x + 1$
+By definition of odd, $n^2 - n + 3 $ is odd
+\end{proof}
+
+\subsection{21}
+Suppose $b$ is any integer. If $b \mod 12 = 5$, what is $8b \mod 12$?\\
+Solution:\\
+Let $b$ be an arbitrary integer that $b \mod 12 = 5$\\
+By the definition of mod\\
+$b = 12q + 5$ for some $q \in \mathbb{Z}$\\
+\begin{align*}
+    \therefore
+    8b &= 8(12q + 5)\tag{By substitution}\\
+    &= 96q + 40\\
+    &= 12(8q + 3) + 4 \tag{By algebra}\\
+\end{align*}
+As $\mathbb{Z}$ is closed under multiplication and addition\\
+There exists $x \in \mathbb{Z}$ such that $x = 8q + 3$ and $8b = 12x + 4$\\
+As $4 \leq 12$, we can say that $8b \mod 12 = 4$
+
+\section{4}
+\subsection{25}
+for all integers $a,b$, if $a \mod 7 = 5, b \mod 7 = 6$, then $ab \mod 7 = 2$\\
+\begin{proof}
+    Let $a,b$ be arbitrary integers that $a \mod 7 = 5, b \mod 7 = 6$\\
+    By the definition of mod, there exists some $q_1,q_2  \in \mathbb{Z}$ such that $a = 7q_1 + 5, b = 7q_2 + 6$
+    \begin{align*}
+        \therefore
+        ab &= (7q_1 + 5)(7q_2 + 6) \tag{By substitution}\\
+        &= 49q_1q_2 + 42q_1 + 35q_2 + 30 \\
+        &= 7(7q_1q_2 + 6q_1 + 5q_2 + 4) + 2 \tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$ is closed under addition and multiplication, there exists some $x \in \mathbb{Z}$ such that $x = (7q_1q_2 + 6q_1 + 5q_2 + 4)$ and that $ab = 7x + 2$\\
+    By definition of mod, as $2 < 7$, $ab \mod 7 = 2 $
+\end{proof}
+
+
+\subsection{31(a)}
+for all integer $m,n$, $m+n, n-n$ are either both even or both odd
+\begin{proof}
+    Let $m,n$ be arbitrary integers\\
+    Situation 1: $m,n$ are both odd\\
+    By definition of odd, there exists some $p,q \in \mathbb{Z}$ such that $m = 2p +1, n = 2q + 1$\\
+    \begin{align*}
+        \therefore
+        m + n &= 2p+1 + 2q + 1 \tag{By substitution}\\
+        &= 2(p+q+1) \tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under addition and multiplication, there exists $x \in \mathbb{Z}$ such that $x = p+q+1$ and that $m + n = 2x$\\
+    By definition of even, $m + n$ is even\\
+    
+     \begin{align*}
+        m - n &= 2p+1 - (2q + 1) \tag{By substitution}\\
+        &= 2(p-q) \tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under subtraction and multiplication, there exists $y \in \mathbb{Z}$ such that $k = p-q$ and that $m - n = 2y$\\
+    By definition of even, $m - n$ is even\\
+    As a result, $m+n,m-n$ are both even\\
+
+    Situation 2: $m,n$ are both even\\
+    By definition of even, there exists some $p,q \in \mathbb{Z}$ such that $m = 2p, n = 2q$\\
+    \begin{align*}
+        \therefore
+        m + n &= 2p + 2q \tag{By substitution}\\
+        &= 2(p+q) \tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under addition and multiplication, there exists $x \in \mathbb{Z}$ such that $x = p+q$ and that $m + n = 2x$\\
+    By definition of even, $m + n$ is even\\
+    
+     \begin{align*}
+        m - n &= 2p - 2q \tag{By substitution}\\
+        &= 2(p-q) \tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under subtraction and multiplication, there exists $y \in \mathbb{Z}$ such that $k = p-q$ and that $m - n = 2y$\\
+    By definition of even, $m - n$ is even\\
+    As a result, $m+n,m-n$ are both even\\
+
+    Situation 3: $m$ is even, $n $ is odd\\
+     By definition of odd and even, there exists some $p,q \in \mathbb{Z}$ such that $m = 2p, n = 2q+1$\\
+    \begin{align*}
+        \therefore
+        m + n &= 2p + 2q + 1\tag{By substitution}\\
+        &= 2(p+q) +1\tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under addition and multiplication, there exists $x \in \mathbb{Z}$ such that $x = p+q$ and that $m + n = 2x + 1$\\
+    By definition of odd, $m + n$ is odd\\
+    
+    \begin{align*}
+        m - n &= 2p - 2q -1\tag{By substitution}\\
+        &= 2(p-q-1) +1\tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under subtraction and multiplication, there exists $y \in \mathbb{Z}$ such that $k = p-q - 1$ and that $m - n = 2y + 1$\\
+    By definition of odd, $m - n$ is odd\\
+    As a result, $m+n,m-n$ are both odd\\
+
+    Situation 4: $m$ is odd, $n $ is even\\
+     By definition of odd and even, there exists some $p,q \in \mathbb{Z}$ such that $m = 2p + 1, n = 2q$\\
+    \begin{align*}
+        \therefore
+        m + n &= 2p + 1 + 2q\tag{By substitution}\\
+        &= 2(p+q) +1\tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under addition and multiplication, there exists $x \in \mathbb{Z}$ such that $x = p+q$ and that $m + n = 2x + 1$\\
+    By definition of odd, $m + n$ is odd\\
+    
+    \begin{align*}
+        m - n &= 2p + 1 - 2q\tag{By substitution}\\
+        &= 2(p-q) +1\tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$  is closed under subtraction and multiplication, there exists $y \in \mathbb{Z}$ such that $k = p-q$ and that $m - n = 2y + 1$\\
+    By definition of odd, $m - n$ is odd\\
+    As a result, $m+n,m-n$ are both odd\\
+    In general, $m+n,m-n$ are either both odd or both even
+\end{proof}
+
+\subsection{33}
+for all integer $a,b,c$, if $a-b$ is odd and $b-c$ is even, $a-c$ is odd
+\begin{proof}
+    Let $a,b,c$ be arbitrary integer such that $a-b$ is odd and $b-c$ is even\\
+    By the definition of odd and even\\
+    There exists some $k_1,k_2 \in \mathbb{Z}$ such that $a-b = 2k_1 + 1, b-c = 2k_2$\\
+    \begin{align*}
+        \therefore
+        a-c &= (a-b) + (b-c) \tag{By algebra}\\
+        &= 2k_1 + 1 + 2k_2 \tag{By substitution}\\
+        &= 2(k_1 + k_2) + 1 \tag{By algebra}\\
+    \end{align*}
+    As $\mathbb{Z}$ is closed under addition, there exists some $x \in \mathbb{Z}$ such that $x = 2k_1 + 2k_2$ and that $a-c = 2x +1$\\
+    By the definition of odd, $a-c$ is odd
+\end{proof}
+\end{document}

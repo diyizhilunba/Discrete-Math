@@ -1,0 +1,304 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{mathrsfs}
+
+\title{Homework 7}
+\author{Aaron Ma}
+\begin{document}
+\maketitle
+\section{79}
+Prove that if $p$ is a prime number and $r$ is an integer with $0<r<p$, then  ${p\choose r}$ is divisible by $p$\\
+\begin{proof}
+\begin{align*}
+    p \choose r &= \frac{p(p-1) \ldots (p-r+1)}{r(r-1)(r-2)\ldots1} \tag{By definition of Combination}\\
+    &= p\frac{(p-1) \ldots (p-r+1)}{r(r-1)(r-2)\ldots1} \tag{By algebra}\\
+\end{align*}
+By the definition of prime number\\
+$p = a \cdot b$ if and only $a = 1, b = p$ or $a = p, b= 1$ if $a,b \in \mathbb{Z^+}$\\
+That is to say, $i \nmid p, i\in {1,2,\ldots r}$\\
+As ${p \choose r} \in \mathbb{Z}$, $i \mid p!$, $i \in {1,2,\ldots r}$\\
+therefore, $p$ is irrelevant to whether the result is an integer or not, meaning $\frac{(p-1) \ldots (p-r+1)}{r(r-1)(r-2)\ldots1}$ is an integer
+As $\frac{(p-1) \ldots (p-r+1)}{r(r-1)(r-2)\ldots1}$ is an integer, $p\choose r$ is divisible by $p$
+\end{proof}
+
+
+\section{2}
+\begin{proof}
+Let's first prove that $\sum_{a=1}^1 \sum_{c=1} ^ d (a+c) = \frac{1d(1+d+2)}{2}$\\
+that is to say, prove $\sum_{c=1}^d (1+c)= \frac{d(d+3)}{2}$\\
+Base Case: when $d = 1$\\ 
+\begin{align*}
+    LHS &= \sum_{c=1}^1 (1+c)\\
+    &= 2\\
+    &= \frac{1 \cdot 4}{2}\\
+    &= RHS\\
+\end{align*}
+Induction Step:\\
+Assume that for $k \in \mathbb{Z}$, the statement is True\\
+For $(k+1)$:\\
+\begin{align*}
+    LHS &= \sum_{c=1}^{k+1} (1+c) \tag{By substitution}\\
+    &= \sum_{c=1}^k (1+c) + 1 + (1 + k) \tag{By algebra}\\
+    &= \frac{(k)(k+3)}{2} + 2 + k \tag{By substitution}\\
+    &= \frac{k^2 + 3k + 4 + 2k}{2} \\
+    &= \frac{(k+1)(k+4)}{2} \tag{By algebra}\\
+    &= RHS\\
+\end{align*}
+Therefore, $\sum_{a=1}^1 \sum_{c=1} ^ d (a+c) = \frac{1d(1+d+2)}{2}$ is True.
+Then, let us prove $\sum_{a = 1}^b \sum_{c = 1} ^ d (a+c) = \frac{bd(b+d+2)}{2}$\\
+As we have already prove the Base Case above, we only need to complete the induction step:\\
+Assume that for $k \in \mathbb{Z}$, the statement $\sum_{a = 1}^k \sum_{c = 1} ^ d (a+c) = \frac{kd(k+d+2)}{2}$ is True\\
+For $k + 1 $:
+\begin{align*}
+    LHS &= \sum_{a = 1}^{k+1} \sum_{c = 1} ^ d (a+c) \\
+    &= \sum_{a = 1}^{k} \sum_{c = 1} ^ d (a+c) + \sum_{c=1}^d (k+1+c)\\
+    &= \frac{kd(k+d+2)}{2} + \sum_{c=1}^{d}(1+c) + dk\\
+    &= \frac{kd(k+d+2)}{2} + \frac{d(d+3)}{2} + dk\\
+    &= \frac{k^2d + kd^2 + 2kd + d^2 + 3d + 2dk}{2}\\
+    &= \frac{(k+1)d((k+1)+d+2)}{2}\\
+\end{align*}
+In conclusion, $\sum_{a = 1}^b \sum_{c = 1} ^ d (a+c) = \frac{bd(b+d+2)}{2}$
+\end{proof}
+
+\section{3}
+\subsection{14}
+$\forall n \in \mathbb{Z^+} \cup \{0\}, \sum_{i=1}^{n+1} i \cdot 2^i = n \cdot 2^{n+2} + 2$
+\begin{proof}
+Use the mathematical induction, Set statement $P(k)$ be $\sum_{i=1}^{k+1} i \cdot 2^i = k \cdot 2^{k+2} + 2$\\
+Base Case: Consider $n = 1$\\
+\begin{align*}
+    \sum_{i=1}^{n+1} i \cdot 2^i &= \sum_{i = 1}^2 i \cdot 2^i \tag{By substitution}\\
+    &=1 \cdot 2^1 + 2 \cdot 2^2\\
+    &= 10\\
+    &= 1 \cdot 2^3 + 2\\
+    &= 1 \cdot 2^{1+2} + 2\\
+\end{align*}
+Therefore, the statement is True when $n  =1 $\\
+Induction Step:\\
+Let $k \in \mathbb{Z^+} \cup \{0\}$, suppose $P(k)$ is True, that is to say, $\sum_{i=1}^{k+1} i \cdot 2^i = k \cdot 2^{k+2} + 2$\\
+Consider $P(k + 1)$:\\
+\begin{align*}
+    \sum_{i=1}^{k+1+1} i \cdot2^i &= \sum_{i = 1} ^ {k+1} i\cdot2^i + (k+2)2^{k+2} \tag{By algebra}\\
+    &= k \cdot 2^{k+2} + 2 + (k+2)2^{k+2} \tag{By substitution}\\
+    &= (k+1)2^{(k+1)+2} +2 \tag{By algebra}\\
+\end{align*}
+Via mathematical induction, we can conclude that $\forall n \in \mathbb{Z^+} \cup \{0\}, \sum_{i=1}^{n+1} i \cdot 2^i = n \cdot 2^{n+2} + 2$
+\end{proof}
+
+\subsection{18}
+$\forall n \in \mathbb{Z^+} - \{1\},\prod _{i=2}^{n} (1-\frac{1}{i}) = \frac{1}{n}$
+\begin{proof}
+    Use the mathematical induction, set statement $P(n)$ be $\prod _{i=2}^{n} (1-\frac{1}{i}) = \frac{1}{n}$\\
+    Base Case: Consider $n = 2$\\
+    \begin{align*}
+        \prod_{i = 2} ^{n} (1-\frac{1}{i}) &= \prod_{i = 2} ^{2} (1-\frac{1}{i}) \tag{By substitution}\\
+        &= 1-\frac{1}{2}\\
+        &= \frac{1}{2} \tag{By algebra}\\
+        &= \frac{1}{n} \tag{By substitution}\\
+    \end{align*}
+    Therefore, $P(2)$ is True
+    Induction Step: \\
+    Let $k \in \mathbb{Z^+} - \{1\}, P(k)$ is True, that is to say, $\prod _{i=2}^{k} (1-\frac{1}{i}) = \frac{1}{k}$\\
+    Consider $P(k+1)$:\\
+    \begin{align*}
+        \prod_{i=2}^{k+1} (1-\frac{1}{i}) &= \prod_{i=2}^k ( 1-\frac{1}{i}) \cdot(1-\frac{1}{k+1}) \tag{By algebra}\\
+        &= \frac{1}{k} \cdot (1-\frac{1}{k+1}) \tag{By substitution}\\
+        &= \frac{1}{k} \cdot \frac{k}{k+1}\\
+        &= \frac{1}{k+1}\tag{By Algebra}\\
+    \end{align*}
+    Via mathematical induction, we can conclude that $\forall n \in \mathbb{Z^+} - \{1\},\prod _{i=2}^{n} (1-\frac{1}{i}) = \frac{1}{n}$
+\end{proof}
+
+\section{4}
+$\forall p\in \mathbb{P} \wedge p \geq 5, \forall n \in \mathbb{Z},p \mid (n^2 +(n+1)^2 + \ldots + (n+p-1)^2)$
+\begin{proof}
+    \begin{align*}
+        n^2 +(n+1)^2 + \ldots + (n+p-1)^2 &= n^2 + n^2 + 2(1)n + 1^2 + n^2 + 2(2)(n) + 2^2 + \ldots + n^2 +2(p-1)n + \\
+        (p-1)^2 \\
+        &= pn^2 + 2n(1+2 \ldots + (p-1)) + (1^2 + 2^2 + \ldots + (p-1)^2) \tag{By algebra}\\
+        &= pn^2 + 2n \frac{(p-1)(p-1+1)}{2} + \frac{(p-1)(p-1+1)(2p-2+1)}{6}
+        \tag{By Theorem 5.2.1 and Exercise 10}\\
+        &= pn^2 + n(p-1)p + \frac{(p-1)(2p-1)}{6}p\\
+        &= (n^2 + n(p-1) + \frac{(p-1)(2p-1)}{6})p\\
+    \end{align*}
+    As $\mathbb{Z}$ is closed under multiplication, addition, and subtraction, we can conclude it is divisible by $p$ as long as $\frac{(p-1)(2p-1)}{6}$ is an integer. In conclusion, we need to prove that $(p-1)(2p-1)$ is divisible by 2 and 3\\
+    As $p$ is a prime greater than 5, $p$ is odd, that is to say, $p = 2k + 1$ for some $k \in \mathbb{Z}$\\
+    \begin{align*}
+        \therefore
+        (p-1)(2p-1) &= (2k+1-1)(2(2k+1)-1)\\
+        &= 2(k(4k+1))\\
+    \end{align*}
+    As $\mathbb{Z}$ is closed under addition and multiplication, $2 \mid (p-1)(2p-1)$\\
+    As $p$ is prime, it cannot be divisible by 3, thus $p = 3q + 1$ or $p = 3q + 2$ for some $q \in \mathbb{Z}$\\
+    Case 1: if $p = 3q + 1$\\
+    \begin{align*}
+        (p-1)(2p-1) &= (3q+1-1)(2(3q+1)-1)\\
+        &= 3(q(6q+1))\\
+    \end{align*}
+    Case 2: if $p = 3q + 2$\\
+    \begin{align*}
+        (p-1)(2p-1) &= (2q + 2 - 1)(2(3q+2) - 1)\\
+        &= 3(2q+1)(2q+1)\\
+    \end{align*}
+    As $\mathbb{Z}$ is closed under addition and multiplication, $3 \mid (p-1)$
+    therefore, $(n^2 + n(p-1) + \frac{(p-1)(2p-1)}{6})$ is an integer as $\mathbb{Z}$ is closed under addition and multiplication.\\
+    In conclusion, $\forall p\in \mathbb{P} \wedge p \geq 5, \forall n \in \mathbb{Z},p \mid (n^2 +(n+1)^2 + \ldots + (n+p-1)^2)$
+\end{proof}
+
+\section{5}
+\subsection{3}
+\subsubsection{a}
+\begin{tabular}{c|c|c}
+     number of stamps & number of packages with 5 stamps & number of packages with 8 stamps \\
+     5 & 1 & 0 \\ 
+     8 & 0 & 1\\ 
+     10 & 2 & 0\\ 
+     13 & 1 & 1\\ 
+     15 & 3 & 0\\ 
+     16 & 0 & 2\\ 
+     20 & 4 & 0\\ 
+     21 & 1 & 2\\
+     24 & 0 & 3\\ 
+     25 & 5 & 0\\
+\end{tabular}
+
+\subsubsection{b}
+\begin{proof}
+    Base Case: from (a), we can find that 15,16,24,25 stamps can be obtained by buying these two packages\\
+    Also, 28 stamps can be obtained by buying 4 packages of 5 stamps and 1 package of 8 stamps
+    Induction Step: \\
+    Assume that for $k \geq 28,$ i stamps can be obtained by buying these two packages for all $i \in \{28,29,\ldots, k\}$, Consider about $(k+1)$ stamps\\
+    Let $k = 5p + 8q$
+    Case 1: if we need no less than 3 packages of 5 stamps for $k$ stamps, that is to say, $p > 3$\\
+    then for $(k+1)$ stamps:
+    \begin{align*}
+        k + 1 &= 5p +8q +1 \tag{By substitution}\\
+        &= 5(p-3) + 8(q + 2) \tag{By algebra}\\
+    \end{align*}
+    As $p \geq 3, (p-3) \geq 0$ so we can obtain $k+1$ stamps by buying $(p-3)$ packages of 5 stamps and $(q+2)$ packages of 8 stamps\\
+    Case 2: if we need less than 3 packages of 5 stamps for $k$ stamps\\
+    As $k \geq 28$, $k-2\cdot5 \geq 18$, meaning we at least need 3 packages of 8 stamps, or $q \geq 3$\\
+    for $(k+1)$ stamps\\
+    \begin{align*}
+        k+1 &= 5p + 8q + 1 \tag{By substitution}\\
+        &= 5(p+5) + 8(q-3) \tag{By algebra}\\
+    \end{align*}
+    That is to say, we can obtain $(k+1)$ stamps by buying $(p+5)$ packages of 5 stamps and $(q-3)$ packages of 8 stamps.\\
+    In conclusion, we can obtain $(k+1)$ stamps with these 2 packages if we can obtain $k$ stamps with these 2 packages\\
+    Via mathematical induction, We can obtain all numbers of stamps larger than 28 with these two types of packages
+\end{proof}
+
+\subsection{12}
+$\forall n \in \mathbb{Z^+} \cup \{0\}, 5 \mid (7^n-2^n)$
+\begin{proof}
+    Base Case:\\
+    When $n = 0$
+    \begin{align*}
+        7^n-2^n &= 7^0-2^0\tag{By substitution}\\
+        &= 0 \\
+        &= 5 \cdot 0\tag{By algebra}\\
+    \end{align*}
+    As 0 is an integer, $5 \mid (7^n-2^n)$ when $n = 0$
+    When $n = 1$\\
+    \begin{align*}
+        7^n-2^n &= 7^1-2^1\tag{By substitution}\\
+        &= 5 \\
+        &= 5 \cdot 1\tag{By algebra}\\
+    \end{align*}
+    As 1 is an integer, $5 \mid (7^n-2^n)$ when $n = 1$\\
+    Induction Steps:
+    Let $k \in \mathbb{Z^+} \cup \{0\}$, Suppose $5 \mid (7^i-2^i)$ for $i \in \{0,1,2,\cdot,k\}$\\
+    By divisibility, $7^k-2^k = 5x$ for some integer x
+    For $(k + 1)$:\\
+    \begin{align*}
+        7^{k+1} - 2^{k+1} &= 7 \cdot 7^k - 2 \cdot 2^k\\
+        &= 2\cdot(7^k-2^k) + 5 \cdot 7^k \tag{By algebra}\\
+        &= 5(2x + 7^k)\\ 
+    \end{align*}
+    As $\mathbb{Z}$ is closed under addition and multiplication, $5 \mid (7^{k+1} - 2^{k+1})$
+    Via mathematical induction, we can conclude that $\forall n \in \mathbb{Z^+} \cup \{0\}, 5 \mid (7^n-2^n)$
+\end{proof}
+
+\subsection{21}
+$\forall n \in \mathbb{Z^+} - \{1\}, \sqrt{n} < \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \ldots + \frac{1}{\sqrt{n}}$
+\begin{proof}
+    Base Case:\\
+    When $n = 2$:
+    \begin{align*}
+        \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} &= 1 + \frac{\sqrt{2}}{2}\\
+        &= \frac{2 + \sqrt{2}}{2}\\
+        &> \frac{\sqrt{2} + \sqrt{2}}{2}\\
+        &> \sqrt{2}
+    \end{align*}
+    Induction Step:\\
+    Let $k \in \mathbb{Z^+} - \{1\}$ such that $\forall i \in \{2,3,\ldots,k\},\sqrt{i} < \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \ldots + \frac{1}{\sqrt{i}}$\\
+    Consider $(k+1)$:\\
+    As $0 < 2 \leq k$\\
+    $\therefore k^2 < k^2 + k$\\
+    $\therefore k = |k| = \sqrt{k^2} < \sqrt{k^2 + k} = \sqrt{(k+1)k} $\\
+    $\therefore k+1 < \sqrt{k(k+1)} + 1$\\
+    \begin{align*}
+        \therefore
+        \sqrt{k+1} &= \frac{k+1}{\sqrt{k+1}}\\
+        &< \frac{\sqrt{k(k+1)}}{\sqrt{k+1}} + \frac{1}{\sqrt{k+1}} \\
+        &< \sqrt{k} + \frac{1}{\sqrt{k+1}}\\
+        &< \sum_{m=1`}^k \frac{1}{\sqrt{m}} + \frac{1}{\sqrt{k+1}}\\
+        &=\sum_{m=1`}^{k+1} \frac{1}{\sqrt{m}}
+    \end{align*}
+    Via mathematical induction, we can conclude that $\forall n \in \mathbb{Z^+} - \{1\}, \sqrt{n} < \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \ldots + \frac{1}{\sqrt{n}}$
+\end{proof}
+
+\section{6}
+\subsection{27}
+\begin{proof}
+    Let $P(n)$ be the statement that for the sequence $\{d_n\}$ where $d_1 = 2 $ and $d_k = \frac{d_{k-1}}{k}$ for all $k \geq 2$, for every integer $n \geq 1 $, $d_n = \frac{2}{n!}$\\
+    Base Case: \\
+    for $n = 1$\\
+    $d_1 = 2 = \frac{2}{1!}$, meaning $P(1)$ is True\\
+    for $n = 2$\\
+    $d_2 = \frac{d_1}{2} = 1 =\frac{2}{2} = \frac{2}{2!}$, meaning $P(2)$ is True\\
+    Let $k \in \mathbb{Z^+}$, Suppose $\forall i \in \{1,2,\ldots,k\}, P(i)$ is True\\
+    For $(k+1)$:
+    \begin{align*}
+        d_{k+1} &= \frac{d_k}{k+1}\\
+        &= \frac{2}{k!(k+1)}\\
+        &=\frac{2}{(k+1)!}\\
+    \end{align*}
+    Via mathematical induction, We can conclude that for every integer $n \geq 1 $, $d_n = \frac{2}{n!}$ in this sequence  
+\end{proof}
+
+
+\subsection{28}
+$\forall n \in \mathbb{Z^+}, \frac{1}{3} = \frac{1+3+5+\ldots+(2n-1)}{(2n+1)+(2n+3) \ldots + (2n+(2n-1))}$\\
+\begin{proof}
+    Let $P(n)$ denote $ 3({1+3+5+\ldots+(2n-1)})={(2n+1)+(2n+3) \ldots + (2n+(2n-1))}$\\
+    Base Case:\\
+    $n = 1$:\\
+    \begin{align*}
+        3(1) &= 3\\
+        &= 2(1) + 1\\
+    \end{align*}   
+    Induction Step:\\
+    $\forall k \in \mathbb{Z^+}$, Suppose $P(k)$ is True\\
+    Consider $P(k+1)$:\\
+    \begin{align*}
+        3(1+3+\ldots + (2(k+1)-1) &=  3(1 + 3 + \ldots + (2k-1)) + 3(2(k+1)-1)\\
+        &= (2k+1) + （2k+3） + \ldots + (2k+(2k-1)) + 6k + 3\\
+        &= (2k+3) + \ldots + (2k+(2k-1)) + 8k+4\\
+        &= (2(k+1) + 1) + (2(k+1) + 3) + \ldots + (2(k+1) + (2(k+1)-3))+ (2(k+1) + (2(k+1)-1))\\
+    \end{align*}
+    Via mathematical Induction, $\forall n \in \mathbb{Z^+}, \frac{1}{3} = \frac{1+3+5+\ldots+(2n-1)}{(2n+1)+(2n+3) \ldots + (2n+(2n-1))}$\\
+\end{proof}
+
+\section{7}
+\subsection{33}
+See graph in another page
+\subsection{45}
+The induction doesn't go from $n = k$ to $n = k+1$
+\subsection{46}
+The statement is False for $n = 1$
+\end{document}

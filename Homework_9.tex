@@ -1,0 +1,311 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{mathrsfs}
+
+\title{Homework 9}
+\author{Aaron Ma}
+\begin{document}
+\maketitle
+
+\section{6.2}
+\subsection{6}
+\begin{proof}
+    Suppose $A$, $B$, and $C$ are any sets.
+
+(1) \textbf{Proof that} $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$:
+
+Let $x \in A \cap (B \cup C)$. [We must show that $x \in \underline{(A \cap B) \cup (A \cap C))}$ ].
+
+By definition of $\cap$, $x \in \underline{A}$ and $x \in B \cup C$.
+
+Thus $x \in A$ and, by definition of $\cup$, $x \in B$ or $\underline{C}$.
+
+\textbf{Case 1} $(x \in A$ and $x \in B)$: In this case, $x \in A \cap B$ by definition of $\cap$.
+
+\textbf{Case 2} $(x \in A$ and $x \in C)$: In this case, $x \in A \cap C$ by definition of $\cap$.
+
+By cases 1 and 2, $x \in A \cap B$ or $x \in A \cap C$, and so, by definition of $\cup$, $x \in \underline{(A \cap B) \cup (A\cap C)}$.
+
+[So $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$ by definition of subset.]
+
+(2) \textbf{Proof that} $(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$:
+
+Let $x \in (A \cap B) \cup (A \cap C)$. [We must show that $x \in A \cap (B \cup C)$].
+
+By definition of $\cup$, $x \in A \cap B$ or $x \in A \cap C$.
+
+\textbf{Case 1} $(x \in A \cap B)$: In this case, by definition of $\cap$, $x \in A$ and $x \in B$.
+
+Since $x \in B$, then $x \in B \cup C$ by definition of $\cup$.
+
+\textbf{Case 2} $(x \in A \cap C)$: In this case, by definition of $\cap$, $x \in A$ and $x \in C$.
+
+Since $x \in C$, then $x \in B \cup C$ by definition of $\cup$.
+
+In both cases $x \in A$ and $x \in B \cup C$, and so, by definition of $\cap$, $x \in \underline{A \cap (B \cup C)}$.
+
+[So $(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$ by definition of $\underline{subset}$.]
+
+\textbf{Conclusion:} [Since both subset relations have been proved, it follows, by definition of set equality, that $\underline{A \cap (B \cup C) = (A \cap B) \cup (A \cap C)}$.]
+
+\end{proof}
+\subsection{11}
+For all sets $A$, $B$, and $C$, $A \cap (B - C) \subseteq (A \cap B) - (A \cap C)$.
+\begin{proof}
+    Suppose $A,B,C$ are any sets\\
+    Let $x \in A \cap (B-C)$\\
+    By definition of $\cap$, $x \in A$ and $x \in (B-C)$\\
+    By definition of set difference, $x \in B$ and $x \notin C$\\
+    as $x \in A$, $x \in A \cap B$, $x \notin A \cap C$ by the definition of $\cap$\\
+    therefore, by the definition of set difference, $x \in (A\cap B) - (A \cap C)$\\
+    As a result, $A \cap (B - C) \subseteq (A \cap B) - (A \cap C)$
+\end{proof}
+
+\subsection{15}
+For every set $A$, $A \cup \emptyset = A$.
+\begin{proof}
+    Let $A$ be any set\\
+    (1) Prove that $A \cup \emptyset \subseteq A$:\\
+    Let $x\in A\cup \emptyset$\\
+    By the definition of $\cup$, $x \in A$ or $x \in \emptyset$\\
+    As $\emptyset$ contains no elements. $x \notin \emptyset$, which indicates that $x \in A$\\
+    Therefore, $x \in A$\\
+    (2) Prove that $A \subseteq A \cup \emptyset $:\\
+    Let $x \in A$\\
+    By the definition of $\cup$, $x \in A \cup \emptyset$\\
+    Therefore, $A \subseteq A \cup \emptyset$ \\
+    As a result, $A \cup \emptyset = A$ by the definition of set equality
+\end{proof}
+
+\section{6.2}
+\subsection{22}
+For all sets $A$, $B$, and $C$,
+\[ A \times (B \cap C) = (A \times B) \cap (A \times C). \]
+\begin{proof}
+    Let $A,B,C$ be any sets\\
+    (1) Prove that $A \times (B \cap C) \subseteq (A \times B) \cap (A \times C)$
+    Let $(x,y) \in A \times (B \cap C)$\\
+    This means that $x \in A, y \in B \cap C$\\
+    By definition of $\cap$, $y \in B$, and $y \in C$\\
+    As $x\in A$, $y \in B$, $(x,y) \in A \times B$\\
+    Similarly, as $x\in A$, $y \in C$, $(x,y) \in A \times C$\\
+    As a result, $(x,y) \in (A \times B) \cap (A \times C)$ by the definition of $\cap$\\
+    (2) Prove that $(A \times B) \cap (A \times C) \subseteq A \times (B \cap C)$\\
+    Let $(x,y) \in (A \times B) \cap (A \times C)$\\
+    By definition of $\cap$, $(x,y) \in A \times B$ and $(x,y) \in A\times C$\\
+    As $(x,y) \in A \times B$, $x \in A, y \in B$\\
+    As $(x,y) \in A\times C$, $x \in A, y \in C$\\
+    By the definition of $\cap$, $y \in B \cap C$\\
+    therefore, $(x,y) \in A \times (B \cap C)$\\
+    As a result, $(A \times B) \cap (A \times C) \subseteq A \times (B \cap C)$\\
+    In conclusion, $ A \times (B \cap C) = (A \times B) \cap (A \times C)$ by the definition of set quality
+\end{proof}
+
+\subsection{35}
+For all sets $A$, $B$, and $C$, if $A \subseteq B$ and $B \cap C = \emptyset$ then $A \cap C = \emptyset$.
+\begin{proof}
+    Let $A, B, C$ be any set such that $A \subseteq B$ and $B \cap C = \emptyset$\\
+    Assume that $A \cap C \neq \emptyset$\\
+    Let $x \in A \cap C$\\
+    By the definition of $\cap$, $x \in A$ and $x \in C$\\
+    As $A \subseteq B$, $x \in B$ by the definition of subset\\
+    By the definition of $\cap$, $x \in B \cap C$, which indicates that $A \cap C \neq \emptyset$\\
+    This is a contradiction with $B \cap C = \emptyset$\\
+    In conclusion, $A \cap C = \emptyset$
+\end{proof}
+
+\section{6.3}
+\subsection{2}
+For all sets $A$ and $B$, $(A \cup B)^c = A^c \cup B^c$\\
+\textbf{Counterexample:}\\ 
+Let $A = \{1,2,3\}, B = \{1,2\}, U = \{1,2,3\}$\\
+Therefore, $(A \cup B)^ = \{1,2,3\}^c = \emptyset$\\
+$A^c \cup B^c = \emptyset \cup \{3\} = \{3\} \neq \emptyset$\\
+Therefore the statement is wrong
+
+\subsection{22}
+Write a negation for each of the following statements. Indicate which is true, the statement or its negation. Justify your answers.
+
+\begin{enumerate}
+    \item[(a)] For all sets $S$, there exists a set $T$ such that $S \cap T = \emptyset$.
+
+    \textbf{Negation:} There exists a set $S$ such that for every set $T$, $S \cap T \neq \emptyset$.
+    
+     The original statement is true because for any set $S$, the set $T$ could be the empty set $\emptyset$, and $S \cap \emptyset = \emptyset$ is always true. Therefore, the negation is false.
+
+    \item[(b)] There exists a set $S$ such that for every set $T$, $S \cup T = \emptyset$.
+
+    \textbf{Negation:} For every set $S$, there exists a set $T$ such that $S \cup T \neq \emptyset$.
+
+    Justification: The original statement is false because there is no set $S$ for which $S \cup T = \emptyset$ for every set $T$. This would only be possible if $T$ were non-existent, as any set union with $\emptyset$ is the set itself, not $\emptyset$. Thus, the negation is true.
+\end{enumerate}
+\subsection{28}
+For all sets $A$, $B$, and $C$,
+\[ (A \cup B) - (C - A) = A \cup (B - C). \]
+
+\textbf{Proof:} Suppose $A$, $B$, and $C$ are any sets. Then
+\begin{align*}
+(A \cup B) - (C - A) &= (A \cup B) \cap (C - A)^c && \text{by (Set Difference Law)} \\
+                     &= (A \cup B) \cap (C \cap A^c)^c && \text{by (Set Difference Law)} \\
+                     &= (A \cup B) \cap (A^c \cap C)^c && \text{by (Communitative Law)} \\
+                     &= (A \cup B) \cap ((A^c)^c \cup C^c) && \text{by (DeMorgan's Laws)} \\
+                     &= (A \cup B) \cap (A \cup C^c) && \text{by (Double Complement Law)} \\
+                     &= A \cup (B \cap C^c) && \text{by (Associative Law)} \\
+                     &= A \cup (B - C) && \text{by (Set Difference Law)}.
+\end{align*}
+
+\section{6.3}
+\subsection{33}
+For all sets $A$ and $B$, $(A - B) \cap (A \cap B) = \emptyset$.
+\begin{proof}
+    \begin{align*}
+        (A-B)\cap(A \cap B) &= (A \cap B^c) \cap (A \cap B) \tag{By Set Difference Law}\\
+        &= A \cap B^C \cap A \cap B \\
+        &= A \cap A \cap B^C \cap B \tag{By Commutative Law}\\
+        &= A \cap B^C \cap B \tag{By Idempotent Law}\\
+        &= A \cap (B^C \cap B) \tag{By Associative Law}\\
+        &= A \cap \emptyset \tag{By Complement Law}\\
+        &= \emptyset \tag{By Universal Bound Law}\\
+    \end{align*}
+\end{proof}
+
+\subsection{38}
+For all sets $A, B$, 
+\[
+(A \cap B )^C \cap A = A - B 
+\]
+\begin{proof}
+    \begin{align*}
+        (A \cap B)^C \cap A &= (A^C \cup B^C) \cap A \tag{By DeMorgan's Law}\\
+        &= (A^C \cap A) \cup (B^C \cap A) \tag{By Distributive Law}\\
+        &= \emptyset \cup (B^C \cap A) \tag{By Complement Law}\\
+        &= B^C \cap A \tag{By Identity Law}\\
+        &= A \cap B^C \tag{By Communitative Law}\\
+        &= A - B \tag{By Set Difference Law}\\
+    \end{align*}
+\end{proof}
+\subsection{43}
+\begin{align*}
+    ((A \cap (B \cup C) \c) \cap (A - B)) \cap (B \cup C^C) &= ((A \cap (B \cup C)) \cap (A \cap B^C)) \cap (B \cup C^C) \tag{By Set Difference Law}\\
+    &= (A \cap (A \cap B^C) \cap (B\cup C)) \cap (B \cup C^C)\tag{By Communinative Law}\\
+    &= (A \cap (A \cap B^C)) \cap ((B \cup C) \cap (B \cup C^C)) \tag{By Associative Law}\\
+    &= (A\cap B^C) \cap ((B \cup C) \cap (B \cup C^C)) \tag{By Absorption Law}\\
+    &= (A\cap B^C) \cap (B \cup (C \cap C^C))\tag{By Distributive Law}\\
+    &= (A\cap B^C) \cap (B \cap \emptyset) \tag{By Complement Law}\\
+    &= (A\cap B^C) \cap \emptyset \tag{By Universal Bound Laws}\\
+    &= \emptyset \tag{By Universal Bound Laws}\\
+\end{align*}
+
+\section{5}
+\subsection{46}
+Let $A = \{1, 2, 3, 4\}$, $B = \{3, 4, 5, 6\}$, and $C = \{5, 6, 7, 8\}$. Find each of the following sets:
+
+\begin{enumerate}
+    \item[a.] $A \Delta B = {1,2,5,6}$ 
+    \item[b.] $B \Delta C = {3,4,7,8}$
+    \item[c.] $A \Delta C = {1,2,3,4,5,6,7,8}$
+    \item[d.] $(A \Delta B) \Delta C = {1,2,7,8}$
+\end{enumerate}
+
+\section{52}
+\[
+(A \Delta B )\Delta C = A \Delta (B \Delta C)
+\]
+\begin{proof}
+We first prove that 
+\[
+(A \cup B) -C = (A-C) \cup (B-C) \tag{1}
+\]
+    \begin{align*}
+        (A \cup B) -C &= (A \cup B) \cap C^C \tag{By Set Difference Law}\\
+        &= (A \cap C^C) \cup (B \cap C^C) \tag{By Distributive Law}\\
+        &= (A - C) \cup (B - C) \tag{By Set Difference Law}\\
+    \end{align*}
+%Then we prove that
+%\[
+%(A \Delta B) -C = (A - B - C) \cup (B- A - C)
+%\]
+%    \begin{align*}
+%        (A \Delta B) -C &= ((A-B) \cup (B-A)) - C\tag{By Definition of $\Delta$}\\
+%        &= (A - B - C) \cup (B- A - C) \tag{By (1)}\\
+%    \end{align*}
+In addition, we prove
+\[
+C - (A \cup B) =(C - A) - B \tag{3}
+\]
+\begin{align*}
+        C - (A \cup B) &= C \cap (A \cup B)^C \tag{By Set Difference Law}\\
+        &= C \cap (A^C \cap B^C) \tag{By DeMorgan's Law}\\
+        &= (C \cap A^C) \cap B^C \tag{By Associative Law}\\
+        &= (C - A) - B \tag{By Set Difference Law}\\
+\end{align*}
+%Then, we prove 
+%\[
+%C \Delta (A \cup B) = 
+%\]
+%\begin{align*}
+%    C \Delta (A \cup B) &= (C - (A \cup B)) \cup ((A \cup B) - C)\tag{By Definition of $\Delta$}\\
+%    &= ((C-A)-B) \cup ((A-C) \cup (B-C))
+%\end{align*}
+%Then, we prove 
+%\[
+%A - (B-C) = (A - B) \cup (A - C^C) \tag{3}
+%\]  
+%\begin{align*}
+%    A - (B-C) &= A - (B \cap C^C) \tag{By Set Difference Law}\\
+%    &= A\cap (B \cap C^C)^C \tag{By Set Difference Law}\\
+%    &= A \cap (B^C \cup C) \tag{By DeMorgan's Law}\\
+%    &= (A \cap B^C) \cup (A \cap C) \tag{By Distributive Law}\\
+%    &= (A - B) \cup (A - C^C) \tag{By Set Difference Law}\\
+%\end{align*}
+%Therefore, for 
+%\[
+%C - (A \Delta B)
+%\]
+%\begin{align*}
+%    C - (A \Delta B) &= C - ((A-B) \cup (B - A))  \tag{By Definition of $\Delta$ }\\
+%    &= (C - (A-B) ) - (B - A) \tag{By 3}
+%\end{align*}
+\begin{align*}
+        \intertext{Therefore,}
+        (A \Delta B )\Delta C &= ((A - B) \cup (B- A)) \Delta C\tag{By Definition of $\Delta$}\\
+        &= \{[(A - B) \cup (B - A) - C] \cup [C - ((A - B) \cup (B - A))]\}\tag{By Definition of $\Delta$}\\
+        &= [(A - B - C) \cup (B-A-C)] \cup [C - (A-B) - (B-A)]\tag{By (1),(2)}\\
+        \intertext{Similarly,}
+        A\Delta(B\Delta C) &= A\Delta ((B-C) \cup (C-B)) \tag{By Definition of Delta}\\
+        &= (A - ((B-C) \cup (C-B))) \cup (((B-C) \cup (C-B)) - A)\tag{By Definition of Delta}\\
+        &= (A - (B-C) - (C-B)) \cup ((B-C-A) \cup (C-B-A))
+    \end{align*} 
+
+
+\begin{align*}
+    (A \Delta B)\Delta C &= ((A-B) \cup (B-A))\Delta C\\
+    &= (((A-B) \cup (B-A)) -C) \cup (C - ((A-B) \cup (B-A))) \tag{By definition of $\Delta$}\\
+    &= (((A \cap B^C) \cup (B \cap A^C)) \cap C^C) \cup C \cap ((A \cap B^C) \cup (B \cap A^C))^C \tag{By Set Difference Law}\\
+    &= (((A \cap B^C) \cup (B \cap A^C)) \cap C^C) \cup (C \cap (((A \cap B^C) \cup (B \cap A^C))^C) \tag{By DeMorgan's Law}\\
+    &= (C \cap ((A\cap B^C)^C \cap (B \cap A^C))^C)) \cup (C^C \cap ((A \cap B^C) \cup (B \cap A^C))) \tag{By Commutative Law}\\
+    &= (C \cap ((A^C \cup B) \cap (B^C \cup A)))\cup (C^C \cap ((A \cap B^C) \cup (B \cap A^C))) \tag{By DeMorgan's Law}\\
+    &= ((C \cap (A^C \cup B) )\cap (B^C \cup A))\cup (C^C \cap ((A \cap B^C) \cup (B \cap A^C))) \tag{By Associative Law}\\
+    &= (((C \cap A^c) \cup B) \cap A^c) \cup ((C \cap A^c) \cup B) \cap (A \cap B^c)) \tag{By Distributive Law} \\
+    &= (((C \cap A^c) \cup B^c) \cup ((C \cap A^c) \cup (C \cap B \cap C \cap A^c))) \cup ((C \cap A^c) \cup (C \cap (B \cap A^c)^c))  \tag{By Distributive Law} \\
+    &= (C \cap A^c \cup B^c) \cup ((C \cap A^c) \cup (C \cap B \cap C \cap A^c)) \cup ((C \cap A^c) \cup (C \cap B^c))  \tag{By Complement Law} \\
+&= (C \cap A^c \cup B^c) \cup ((C \cap A^c) \cup ((C \cap A^c) \cup (C \cap A^c \cap C)))  \tag{By Universal Bound and Identity Law} \\
+&= (C \cap A^c) \cup (C \cap A^c \cup B^c) \cup (C \cap (A^c \cup A)) \cup (C \cap B^c \cap C)  & \tag{By Commutative Law} \\
+&= (C \cap A^c) \cup \varnothing \cup (C \cap A^c) \cup (C \cap B^c) \cup (C \cap A^c \cup (C \cap B^c \cap C))  \tag{By Identity Law} \\
+&=(C \cap A^c \cup C) \cup (C \cap A^c) \cup (C \cap A^c) \cup (C \cap B^c \cap C) \tag{By Universal Bound Law} \\
+&= (C \cap A^c \cup C) \cup (C \cap A^c) \cup (C \cap A^c) \cup (C \cap B^c \cap C)\tag{By Complement Law}
+\end{align*}
+
+
+
+
+
+
+
+\end{proof}
+
+\end{document}

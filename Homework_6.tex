@@ -1,0 +1,292 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{mathrsfs}
+
+\title{Homework 5}
+\author{Aaron Ma}
+\begin{document}
+\maketitle
+\section{1}
+\subsection{4.5}
+\subsubsection{38}
+$\forall m \in \mathbb{Z}, m^2 = 5k \vee m^2 = 5k+1 \vee m^2 = 5k + 4$ for some integer k
+\begin{proof}
+Let m be an arbitrary integer\\
+Situation 1: $m = 5x$ for some integer $x$\\
+\begin{align*}
+    m^2 &= (5x)^2\\
+    &= 25x^2\\
+    &= 5(5x^2)\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition and multiplication, there exists an integer $k$ so that $k = 5x^2$ and $k \in \mathbb{Z}$\\
+That is to say, $m^2 = 5k$ for some integer k under this situation\\
+
+Situation 2: $m = 5x + 1$ for some integer $x$\\
+\begin{align*}
+    m^2 &= (5x+1)^2\\
+    &= 25x^2 + 10x + 1\\
+    &= 5(5x^2 + 2x) + 1\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition and multiplication, there exists an integer $k$ so that $k = 5x^2 + 2x$ and $k \in \mathbb{Z}$\\
+That is to say, $m^2 = 5k + 1$ for some integer k under this situation \\ 
+
+Situation 3: $m = 5x +2$ for some integer $x$\\
+\begin{align*}
+    m^2 &= (5x + 2)^2\\
+    &= 25x^2 + 20x + 4\\
+    &= 5(5x^2 + 4x) + 4\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition and multiplication, there exists an integer $k$ so that $k = 5x^2 + 4x$ and $k \in \mathbb{Z}$\\
+That is to say, $m^2 = 5k + 4$ for some integer k under this situation\\
+
+Situation 4: $m = 5x +3$ for some integer $x$\\
+\begin{align*}
+    m^2 &= (5x + 3)^2\\
+    &= 25x^2 + 30x + 9\\
+    &= 5(5x^2 + 6x +1) + 4\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition and multiplication, there exists an integer $k$ so that $k = 5x^2 + 6x +1$ and $k \in \mathbb{Z}$\\
+That is to say, $m^2 = 5k + 4$ for some integer k under this situation\\
+
+Situation 5: $m = 5x + 4$ for some integer $x$\\
+\begin{align*}
+    m^2 &= (5x + 4)^2\\
+    &= 25x^2 + 40x + 16\\
+    &= 5(5x^2 + 8x +3) + 1\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition and multiplication, there exists an integer $k$ so that $k = 5x^2 + 8x +3$ and $k \in \mathbb{Z}$\\
+That is to say, $m^2 = 5k + 1$ for some integer k under this situation\\
+
+In conclusion, For every integer $m$, $m^2 = 5k \vee m^2 = 5k+1 \vee m^2 = 5k +4$ for some integer $k$
+\end{proof}
+
+\subsection{42}
+$\forall r,c \in \mathbb{R}, (c \geq 0 \wedge -c \leq r \leq c) \iff |r| \leq c$
+
+\begin{proof}
+First we prove $\forall r,c \in \mathbb{R}, (c \geq 0 \wedge -c \leq r \leq c) \rightarrow |r| \leq c$\\
+Let $r,c$ be arbitrary real numbers such that $c \geq 0, -c \leq r \leq c$\\
+Situation 1: $r \geq 0$\\
+\begin{align*}
+    \therefore
+    |r| &= r \tag{By definition of absolute value}\\
+    &\leq c  \tag{By assumption}
+\end{align*}
+Situation 2: $r \leq 0$\\
+By definition of absolute value,
+$|r| = -r$\\
+As $-c \leq c$, $-r \leq c$ by Algebra\\
+As a result, $|r| \leq c$\\
+In conclusion, $\forall r,c \in \mathbb{R}, (c \geq 0 \wedge -c \leq r \leq c) \rightarrow |r| \leq c$\\
+
+Next we prove $\forall r,c \in \mathbb{R}, |r| \leq c \rightarrow (c \geq 0 \wedge -c \leq r \leq c) $\\
+Situation 1: $r \geq 0$\\
+\begin{align*}
+    \therefore 
+    0 &\leq r \tag{By assumption}\\ 
+    &= |r| \tag{By definition of absolute value}\\
+    &\leq c \tag{By assumption}
+\end{align*}
+As $c \leq 0$, it is also easy to find that $-c \leq 0$ by basic Algebra, thus $-c \leq r$\\
+In conclusion, $c \leq 0 \wedge -c \leq r \leq c $under this situation\\
+
+Situation 2:$r < 0$\\
+\begin{align*}
+    \therefore
+    -r &= |r| \tag{By definition of absolute value}\\
+    &\leq c\tag{By Assumption}\\
+    \intertext{By basic Algebra, $-c \leq r$}
+    \therefore
+    -c & \leq r\\
+    & \leq 0 \tag{By Assumption}\\
+\end{align*}
+In other words, $c \geq 0 \geq r$ by Basic Algebra\\
+In conclusion, $c \leq 0 \wedge -c \leq r \leq c $under this situation\\
+\end{proof}
+
+\subsection{47}
+Let $m,n, d$ be arbitrary integers that $d>0 \wedge d > 0 \wedge d|(m-n)$\\
+By definition of divisibility, there exists some $k\in \mathbb{Z}$ such that $(m-n) = dk$\\
+As a result, $m = dk + n$\\
+Assume $n = dp + q$ for some $p,q\in \mathbb{Z}, 0 \leq q \leq d$\\
+In other words, $n \mod d = q$\\
+\begin{align*}
+    m &= dk + n\\
+    &= dk + dp + q \tag{By substitution}\\
+    &= d(k + p) + q \tag{By algebra}\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition\\
+There exists some $x \in \mathbb{Z}$ such that $x = k + p$ and $m = dx + q$\\
+In other words, $m \mod d = q = n \mod d$\\
+\section{2}
+$\forall x \in \mathbb{R}, (|x| < \epsilon \forall \epsilon > 0) \rightarrow x = 0$\\
+\begin{proof}
+Consider the Negation:\\
+$\exists x \in \mathbb{R}, \forall \epsilon > 0,(|x| < \epsilon \wedge x \neq 0)$\\
+As $x \neq 0$, $|x| > 0$ By definition of absolute value\\
+Let $\epsilon = |x|$\\
+As $|x| < \epsilon$, $|x| < |x|$ by substitution\\
+However, as $|x| = |x|$ for all real numbers and $|x|$ can be smaller than itself\\
+There is a contradiction \\
+In conclusion, $\forall x \in \mathbb{R}, (|x| < \epsilon \forall \epsilon > 0) \rightarrow x = 0$\\
+\end{proof}
+
+\section{3}
+\subsection{9}
+\subsubsection{a}
+The negation raised by the student is incorrect, the correct negation of the statement is that there exists some rational numbers and some irrational numbers that the difference between the rational number and the irrational number is rational\\
+\subsubsection{b}
+the difference of any irrational number and any rational number is irrational
+\begin{proof}
+Consider the Negation:\\
+$\exists x \in \mathbb{Q}, \exists y \in \mathbb{R} - \mathbb{Q}, x-y \in \mathbb{Q}$\\
+Let $x$ be an arbitrary rational number and $y$ be an arbitrary irrational number such that  $z = x-y \in \mathbb{Q}$\\
+That is to say, $y = x-z$
+By definition of rational number :\\
+$x = \frac{a}{b}, z = \frac{c}{d} $ for some $a,b,c,d \in \mathbb{Z}$ and $b,d \neq 0$\\
+\begin{align*}
+    \therefore
+    y &= x - z \tag{By assumption}\\
+    &= \frac{a}{b} - \frac{c}{d}\tag{By substitution}\\
+    &= \frac{ad - bc}{bd} \tag{By algebra}\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition, multiplication, and subtraction, there exists some integer $p,q$ such that $p = ad - bc, q = bd, y = \frac{p}{q}$\\
+In other words, $y$ is a rational number, which contradicts with the assumption that $ y \in \mathbb{R} - \mathbb{Q}$
+In conclusion, the difference of any irrational number and any rational number is irrational
+\end{proof}
+
+\subsection{18}
+If $a$ and $b$ are rational numbers and $b \neq 0$, and $r \in \mathbb{R} - \mathbb{Q}$, then $a + br$ is irrational \\
+\begin{proof}
+Consider the negation:\\
+$\exists a, b \in \mathbb{Q} \wedge b \neq 0, \exists r \in \mathbb{R} - \mathbb{Q}, a + br \in \mathbb{Q}$\\
+Let $a, b, c = a + br$ be arbitrary rational numbers that $b \neq 0$\\
+Let $r$ be an irrational number\\
+By definition of rational number\\
+$a = \frac{m}{n}, b = \frac{p}{q}, c = \frac{u}{v}$ for some integer $m,n,p,q,u,v$ and $n,p,q,v \neq 0$\\
+As $c = a + br$, $r = \frac{c-a}{b}$ by basic algebra\\
+\begin{align*}
+    r &= \frac{c-a}{b}\\
+    &= \frac{\frac{u}{v} - \frac{m}{n}}{\frac{p}{q}} \tag{By substitution}\\
+    &= \frac{\frac{un-mv}{vn}}{\frac{p}{q}}\\
+    &= \frac{(un-mv)q}{vnp}\tag{By algebra}\\
+\end{align*}
+As $\mathbb{Z}$ is closed under addition, multiplication, and subtraction, there exists some integer $x,y$ such that $x = (un-mv)q, y = vnp$ and that $r = \frac{x}{y}$\\
+In other words, $r \in \mathbb{Q}$, which contradicts the assumption that $r$ is irrational\\
+As a result, If $a$ and $b$ are rational numbers and $b \neq 0$, and $r \in \mathbb{R} - \mathbb{Q}$, then $a + br$ is irrational
+\end{proof}
+
+
+\section{4}
+\subsection{22}
+For every real number $r$, if $r^2$ is irrational then $r$ is irrational.
+\subsubsection{a}
+Suppose not, that is, suppose there exists a real number $r$, $r^2$ is irrational and $r$ is rational.\\
+Then I will prove this negation statement is false
+\subsubsection{b}
+Consider the contrapositive statement: Suppose there exists a real number $r$ such that if $r$ is rational, then $r^2$ is rational.\\
+Then I will prove this statement is true
+\subsection{24}
+The reciprocal of any irrational number is irrational.\\
+\subsubsection{Proof by Negation}
+\begin{proof}
+Suppose not, that is to say, $\exists x \in \mathbb{R} - \mathbb{Q}, \frac{1}{x} \in \mathbb{Q}$\\
+By definition of rational number, there exists some $p,q \in \mathbb{Z}. p,q \neq 0$ such that $\frac{1}{x} = \frac{p}{q}$\\
+Therefore, $x = \frac{q}{p}$ by basic algebra.\\
+As $p,q \in \mathbb{Z}$, $x$ is rational by definition of rational number\\
+This contradicts with the assumption that $x \in \mathbb{R} - \mathbb{Q}$\\
+In conclusion, The reciprocal of any irrational number is irrational.\\
+\end{proof}
+
+
+\subsubsection{Proof by Contrapositive}
+\begin{proof}
+Consider the Contrapositive statement:\\
+$\forall r \in \mathbb{R},(\frac{1}{r} \in \mathbb{Q}) \rightarrow (r \in \mathbb{Q})$    \\
+Let $\frac{1}{r}$ be an arbitrary rational number\\
+By definition of rational number, there exists some $p,q \in \mathbb{Z}$ such that $\frac{1}{r} = \frac{p}{q}, q \neq 0$\\
+By basic algebra, $r = \frac{q}{p}$ As $\frac{1}{r} \neq 0$\\
+As a result, $r$ is definitely a rational number
+\end{proof}
+
+\section{5}
+$\forall a,b,c \in \mathbb{Z}$, ($a|b \wedge a \nmid c$)$ \rightarrow a \nmid (b+c)$.\\
+\subsection{Proof by Negation}
+Suppose not, that is to say $\exists a, b, c \in \mathbb{Z}$, $(a|b \wedge a \nmid c) \rightarrow (a|(b+c))$\\
+
+By the definition of divisibility, there exists some $m,n \in \mathbb{Z}$ such that $b = am, b+c = an$ 
+\begin{align*}
+    \therefore
+    c = (b+c) - b \tag{By algebra}\\
+    &= an - am \tag{By substitution}\\
+    &= a(n-m)
+\end{align*}
+As $\mathbb{Z}$ is closed under subtraction, there exists $x = n-m \in \mathbb{Z}$ such that $c = a(n-m)$\\
+By the definition of divisibility, $c | a$\\
+However, it contradicts the assumption, thus,\\
+$\forall a,b,c \in \mathbb{Z}$, ($a|b \wedge a \nmid c$)$ \rightarrow a \nmid (b+c)$.\\
+
+
+
+
+\subsection{Proof by Contrapositive}
+
+Consider the Contrapositive statement:
+$\forall a,b,c \in \mathbb{Z}, a|(b+c) \rightarrow (a \nmid b \vee a | c)$\\
+\begin{proof}
+Situation 1: if $a \nmid b$\\
+It is easy to find that $(a \nmid \vee a|c)$ is true thus the statement is true.\\
+Situation 2: if $a | b$\\
+By the definition of divisibility:\\
+$b + c = ap, b = aq$ for some $p,q \in \mathbb{Z}$\\
+\begin{align*}
+    c &= (b+c) -b \tag{By algebra}\\
+    &= ap - aq \tag{By substitution}\\
+    &= a(p-q) \tag{By algebra}\\
+\end{align*}
+As $\mathbb{Z}$ is closed under subtraction, there exists some $x \in \mathbb{Z}$ such that $c = ax$\\
+By the definition of divisibility, $a|c$
+
+In conclusion, $\forall a,b,c \in \mathbb{Z}, a|(b+c) \rightarrow (a \nmid b \vee a | c)$\\
+
+\end{proof}
+
+\section{6}
+\subsection{a}
+Prove by contraposition: For all positive integers n, r, s, if $rs \leq n$, then $r \leq \sqrt{n}$ or $ s \leq \sqrt{n}$\\
+
+\begin{proof}
+Consider the contrapositive statement:\\
+$\forall n,r,s \in \mathbb{Z^+}$, $(r > \sqrt{n} \wedge s > \sqrt{n}) \rightarrow rs > n$\\
+As $r,s,n > 0$ By the definition of $\mathbb{Z^+}$
+\begin{align*}
+    rs &> \sqrt{n} * \sqrt{n}\tag{By substitution}\\
+    &= n \tag{By algebra}\\
+\end{align*}
+In conclusion, $\forall n,r,s \in \mathbb{Z^+}$, $(r > \sqrt{n} \wedge s > \sqrt{n}) \rightarrow rs > n$, which means \\
+For all positive integers n, r, s, if $rs \leq n$, then $r \leq \sqrt{n}$ or $ s \leq \sqrt{n}$
+\end{proof}
+
+\subsection{b}
+For each integer $n>1$, if $n$ is not prime then there exists a prime number $p$ such that $p \leq \sqrt{n}$ and $n$ is divisible by $p$
+
+\begin{proof}
+For all integer $n > 1$, if $ n$ is not prime, then $n$ is composite\\
+Let $n$ be an arbitrary integer that is not prime and larger than 1\\
+As it is not prime, there must exists $a,b \in \mathbb{Z}$ such that $n = ab$ and $n > a,b > 1$\\
+from 6.1(a), As $ab = n$, we conclude that $a \leq \sqrt{n}$ or $b \leq \sqrt{n}$\\
+That is to say, For each integer $n>1$, if $n$ is not prime then there exists an integer $x > 1$ such that $x \leq \sqrt{n}$ and $x$ is divisible by $x$\\
+From Theorem 4.4.4, any integer greater than 1 is divisible by a prime number\\
+From Theorem 4.4.3, if $a | b$ and $b|c$, then $a|c$\\
+As a result, there must exist a prime number $p$ such that $p|n$
+\end{proof}
+
+\subsection{c}
+For all integer $n>1$, if there doesn't exist any prime number $p$ such that $p \leq \sqrt{n}$ or $n$ is divisible by $p$, then $n$ is prime
+ 
+ 
+\end{document}

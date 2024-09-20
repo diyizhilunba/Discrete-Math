@@ -1,0 +1,169 @@
+\documentclass[a4paper]{article}
+
+\def\npart {MA-2314}
+\def\nterm {Spring}
+\def\nyear {2024}
+\def\nlecturer {Cereste Ken}
+\def\ncourse {Discrete Math}
+
+\input{header}
+
+\begin{document}
+\maketitle
+\section{Definitions}
+\subsection{Relation}
+Let $A$ and $B$ be sets. A relation $R$ from $A$ to $B$ is a subset of $A \times B$. The set $A$ is called the domain of $R$ and the set $B$ is called its co-domain.
+\subsection{Function}
+A relation that satisfies the following (two) property:
+\begin{enumerate}
+    \item every x has one and only one corresponding y
+    \item every x has only one corresponding y
+\end{enumerate}
+\begin{remark}
+    A function has no restriction on y\\
+    If it does not have such a property, we call this function not well-defined
+\end{remark}
+
+\subsection{Range, image, and Codomain}
+Range = Image = All y that has a corresponding x\\
+Codomain = all the possible y in the set(The entire set that y can select from)\\
+The image of x under f = f of x = the value of f at x = $\{y \in Y\mid y = f(x) \text{for some } x \in X\}$
+
+\subsection{Inverse image and premiage}
+Inverse = preimage = X, as all x in X has to have a corresponding y
+
+\subsection{Identity function}
+$I_X(x) = x$ for all $x \in X$
+
+\subsection{What it actually means for a function(How use in prove)}
+$f: X \rightarrow Y$, let $A, B \subseteq X$\\
+What $f(A)$ means:\\
+\textbf{In y perspective}\\
+Suppose(for any) $y \in f(A)$, there exists $x \in A$ such that $f(x) = y$\\
+Here, we see $f(A)$ similar to what we said in image(A set of things that can be related to all $x \in A$\\
+\textbf{In x perspective}\\
+There exists a $y$ such that $y = f(x)$ for some $x \in A$, Therefore, $y \in f(A)$
+\subsection{One to one and how to prove:}
+If$f(x_1) = f(x_2)$, then $x_1 = x_2$\\
+\textbf{Prove True:}\\
+$\forall x_1, x_2 \in A, f(x_1) = f(x_2) \rightarrow x_1 = x_2$\\
+Suppose (Condition),..., $x_1 = x_2$\\
+\textbf{Prove False:}\\
+$\exists x_1, x_2 \in A, f(x_1) = f(x_2) \vee x_1 \neq x_2$\\
+\subsection{Onto and how to prove:}
+$\forall y \in Y, \exists x \in X (F(x) = y)$\\
+Suppose y be any element in Y, ... , there exists $x = \ldots$ such that $F(x) = y$ \\
+\textbf{Prove not:} there exist one that does not have corresponding x\\
+\subsection{Inverse Function}
+Suppose \( F: X \rightarrow Y \) is a one-to-one correspondence; in other words, suppose \( F \) is one-to-one and onto. Then there is a function \( F^{-1}: Y \rightarrow X \) that is defined as follows: Given any element \( y \) in \( Y \),
+
+\[ F^{-1}(y) = \text{that unique element } x \text{ in } X \text{ such that } F(x) \text{ equals } y. \]
+
+Or, equivalently,
+
+\[ F^{-1}(y) = x \iff y = F(x). \]
+\subsection{String Equality}
+$s_1,s_2$ are the same iff they have the same length and exactly the same character\\
+Then we can remove/add a new string at the same position
+
+
+
+\section{Prove log is irrational}
+\begin{ex}
+    Prove $log_37$ is irrational\\
+\begin{proof}
+    Assume $log_37$ is rational\\
+    By definition of rational number, Let $log_37 = \frac{p}{q}$ where $p,q \in \Z, q \neq 0$\\
+    By definition of $log$, $7 = 3^{\frac{p}{q}}$\\
+    By algebra, $7^q = 3^p$\\
+    Let $u = 7^q$\\
+    As $\Z$ is closed under multiplication, $u \in \Z$\\
+    By substitution, $u = 7^q = 3^p$\\
+    By undue factorization Theorem, u can only have one way to be composed as a multiplication of primes\\
+    Therefore there is a contradiction with the statement\\
+    As a result, $log_37$ is rational
+    
+\end{proof}
+\end{ex}
+
+\section{Prove $f(A) \subseteq f(B)$}
+\begin{ex}
+    $F(A\cap B) \subseteq F(A) \cap F(B)$
+\begin{proof}
+    \textit{Define everything:}\\
+    Let $F$ be a function from X to Y, \\
+    Assume $A, B$ be arbitrary set in X\\
+    Let $y \in F(A \cap B)$         \textit{$\#$We cannot say that y is arbitrary here?}\\
+    By definition of the image of a set, there must be some x such that $x\in (A \cap B), f(x) = y$\\
+    ... $x \in A, x \in B$\\
+    Therefore $y = F(x)$ for some $x \in A, x \in B$\\
+    Since $y = F(x)$ for some $x \in A$\\
+    $y \in F(A)$ by definition of image of a set\\
+    ... $y \in F(B)$ by definition of image of a set\\
+    therefore $y \in F(A) \cap F(B)$ ...\\
+    Therefore, $F(A \cap B) \subseteq F(A) \cap F(B)$\\
+\end{proof}
+\end{ex}
+
+
+
+
+
+\begin{thm}
+    If $f: X \rightarrow Y, g: Y \rightarrow Z $ are both injective functions, then $g \circ f$ is injective
+\end{thm}
+\begin{proof}
+    Let f,g bothe be injective functions\\
+    Let $x_1,x_2 \in X$, Suppose $(g\circ f)(x_1) = (g \circ f)(x_2)$\\
+\begin{align*}
+    (g\circ f)(x_1) &= (g \circ f) (x_2)\\
+    g(f(x_1)) &= g(f(x_2))
+    f(x_1) &= f(x_2)\\
+    x_1 &= x_2
+\end{align*}
+\end{proof}
+
+\begin{remark}
+    Let $f: X \rightarrow Y, g: Y\rightarrow Z$ be any functions\\
+    Suppose $g \circ f$ is injective
+    Let $x_1, x_2 \in X, f(x_1) = f(x_2)$\\
+    \begin{align*}
+        f(x_1) &= f(x_2)\\
+        g(f(x_1)) &= g(f(x_2))\\
+        (g \circ f)(x_1) &= (g \circ f)(x_2) \\
+    \end{align*}
+    therefore, f must be injective\\
+    However,
+    \[
+    \exists y_1,y_2 \in Y(g(y_1) = g(y_2) \wedge y_1 \neq y_2)
+    \]
+\end{remark}
+
+
+\section{PigeonHole Theorem}
+\textbf{A Set-Theoretic Notation:}\\
+Let $Y^X$ denote the set of all functions from a set X into a set Y
+\[
+Y^X = \{f \subseteq X \times Y \mid f:X \rightarrow Y\}
+\]
+\textbf{The Pigeonhole Principle(PHP):}\\
+A function from one finite set to a smaller finite set cannot be injective. There must be at least two elements in the domain that have the same image in the co-domain\\
+or
+\begin{thm}
+    \textbf{PegionHole Theorem:}Let X,Y be sets such that $N(X) = n \in \Z^+, N(y) = m \in \Z^+$ For any $f \in Y^X$, if $n > m$, then f is not jnjective, i.e. there exist $x_1,x_2 \in X$such that $f(x_1) = f(x_2) , x_1 = x_2 $  
+\end{thm}
+
+\begin{thm}
+    Let $X,Y$ be sets such that $N(x) = N(y) = n \in \Z^+ , f \in Y^X$ f is injective iff f is surjective
+\end{thm}
+\begin{exercise}
+    Let $n\in \Z^+$ such that $S = \{1,2,\ldots,2n\}$\\
+    If we choose $n+1$ integers from S, must at least one of them be even?\\
+    If we choose $n+1$ integers from S, must at least one of them be odd?
+\end{exercise}
+\begin{proof}
+    
+\end{proof}
+
+
+\end{document}

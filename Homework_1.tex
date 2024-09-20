@@ -100,7 +100,7 @@ $Proof:$
     &\equiv \neg[(\neg p \vee q) \wedge (\neg p \vee \neg q)] \vee \neg p \tag{by Theorem *}\\
     &\equiv \neg[\neg p \vee (q \wedge \neg q)]\vee \neg p \tag{by Distributive Law}\\
     &\equiv \neg(\neg p \vee c) \vee \neg p \tag{by Negation Law}\\
-    &\equiv \neg(\neg p) \vee \neg p \tag{by Universal Bound Law}\\
+    &\equiv \neg(\neg p) \vee \neg p \tag{by Identity Law}\\
     &\equiv p \vee \neg p \tag{by Double Negative Law}\\
     &\equiv t \tag{by Negation Law}  
 \end{align}
@@ -187,7 +187,7 @@ $p$ & $q$ & $r$ & $p \wedge q$ & $\neg r$ & $\neg q$ & $p \wedge q \rightarrow \
 \hline
 T & T & T & T & F & F & F & T & T &  \\
 T & T & F & T & T & F & T & T & T & T \\
-T & F & T & F & F & T & T & T & T & T \\
+T & F & T & F & F & T & T & T & T & F \\
 T & F & F & F & T & T & T & T & T & T \\
 F & T & T & F & F & F & F & F & T &  \\
 F & T & F & F & T & F & T & F & T &  \\
@@ -196,8 +196,8 @@ F & F & F & F & T & T & T & T & F & \\
 \hline
 \end{tabular}
 \end{center}
-For all the situations where all the premises are $True$, the conclusion is $True$.\\ 
-As a result, The argument is valid.
+For all the situations where all the premises are $True$, the conclusion is false in the second critical row $True$.\\ 
+As a result, The argument is invalid.
 
 \#12(b)\\
 \begin{center}
@@ -238,7 +238,7 @@ $\therefore q \vee \neg r$
     \hline
         T & T & T & F & F & T & T & T \\
         T & T & F & F & T & T & F &   \\
-        T & F & T & F & F & T & T & T \\
+        T & F & T & F & F & T & T & F\\
         T & F & F & F & T & T & F &   \\
         F & T & T & T & F & T & T & T \\
         F & T & F & T & T & T & T & T \\
@@ -247,8 +247,8 @@ $\therefore q \vee \neg r$
     \hline
     \end{tabular}
 \end{center}
-As we can see from the truth table, for all the circumstances that both of the Premises are $True$, the Conclusion is also $True$.\\
-This indicates that the argument is valid.
+As we can see from the truth table, Among all the circumstances that which both of the Premises are $True$, the Second critical row shows that the conclusion is false.
+This indicates that the argument is invalid.
 
 
 
@@ -288,7 +288,60 @@ As a result, there are two knights, which are W and Y.
 
 
 
-11. (6 points) Section 2.3 \#42, 44. Annotate.
-
-
+11. (6 points) Section 2.3 \#42, 44. Annotate.\\
+\#42
+\begin{align*}
+    (1)
+    \because q \rightarrow r \tag{by assumption b}\\
+    \neg r \tag{by assumption d}\\
+    \therefore \neg q\tag{by Modus Tollens}\\
+    (2)
+    \because p \vee q\tag{by assumption a}\\
+    \neg q\tag{by Step 1}\\
+    \therefore p \tag{by Elimination}\\
+    (3)
+    \because \neg q \rightarrow u\wedge s\tag{by assumption e}\\
+    \neg q\tag{by Step 1)}\\
+    \therefore u \wedge s\tag{by Modus Ponens}\\
+    (4)
+    \because u\wedge s\tag{by Step 3}\\
+    \therefore s\tag{by Specialization}\\
+    (5)
+    \because s\tag{by Step 4}\\
+    p\tag{by Step 2}\\
+    \therefore p\wedge s\tag{by Conjunction}\\
+    (6)
+    \because p\wedge s \rightarrow t\tag{by Assumption c}\\
+    p\wedge s\tag{by Step 5}\\
+    \therefore t\tag{by Modus Ponens}\\
+\end{align*}
+\#44
+\begin{align*}
+    (1)
+    \because\neg q \vee s \tag{by Assumption d}\\
+    \neg s \tag{by Assumption e}\\
+    \therefore \neg q\tag{by Elimination}\\
+    (2)
+    \because p \rightarrow q\tag{by Assumption a}\\
+    \neg q\tag{by Step 1}\\
+    \therefore \neg p\tag{by Modus Ponens}\\
+    (3)
+    \because \neg s\tag{by Assumption e}\\
+    r\vee s\tag{by Assumption b}\\
+    \therefore r\tag{by Elimination}\\
+    (4)
+    \neg p \tag{by Step 2}\\
+     r \tag{by Step 3}\\
+    \therefore \neg p \wedge r\tag{by Conjunction}\\
+    (5)
+    \because\neg p\wedge r \rightarrow u\tag{by Assumption f}\\
+    (6)
+    \because \neg s\tag{by Assumption e}\\
+    \neg s \rightarrow \neg t\tag{by Assumption c}\\
+    \therefore \neg t\tag{by Modus Ponens}\\
+    (7)
+    \because w\vee t\tag{by Assumption g}\\
+    \neg t \tag{by Step 6}\\
+    \therefore w \tag{by Elimination}
+\end{align*}
 \end{document}
